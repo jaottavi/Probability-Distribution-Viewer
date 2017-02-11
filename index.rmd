@@ -1,0 +1,48 @@
+---
+title: "Distribution Viewer Pitch"
+author: "James Ottavi"
+date: "2/10/2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## The Probability Distribution Viewer
+The Probability Distribution Viewer aims to give users the ability to:
+
+- Randomly generate data points from 4 different probability distributions
+- Select different characterstics of those probability distributions that they'd like it to satisfy
+- And generate a graph of those distributions on the screen
+
+
+## Overview
+### Why Probability distributions?
+In statistics, probability distributions (and densities) are a *fundamental* part to any statistical test. Therefore, understanding *what* a distribution is important. For example, a foundation of statistics, the linear model, is based on the assumption that the residuals from that model are **normally distributed**. [source](https://en.wikipedia.org/wiki/Ordinary_least_squares)
+
+### Why Graphs?
+Though the mathematical concepts behind probability distributions are vital to full understanding, a visual helps people get a more concrete example of how they shift and move rather than how they're abstractly represented. And in my personal opinion, I find graphs to be much more engaging and fun! (though not everyone may agree...)
+
+
+
+## Graph vs Formulae
+For example, the below items both represent normal distributions (PDFs). However,for a beginner, understanding how a distribution *looks* will provide more context then trying to understand how a distribution comes about (i.e. with the formula). Plus, doesn't the graph look more colorful and engaging as well?
+
+```{r pictures, echo = FALSE, out.width= "400px"}
+library(knitr)
+include_graphics("/Users/James/Desktop/Shiny_App/Normal PDF.png")
+
+library(ggplot2)
+library(gridExtra)
+set.seed(1)
+dat <- data.frame(x = rnorm(1000, 0, 1))
+ggplot(dat, aes(x)) + geom_density(fill = "steelblue", alpha = .5) + theme_minimal() + labs(title = "Normal Distribution")
+```
+
+## Conclusion
+Although mathematical formulas are necessary in order to advance in statistics, I believe that the ability for graphs to generate interest and engagement allows a much more effective avenue for introduction to probability densities
+
+I hope that you enjoy using the Probability Density Viewer app, and the continuation of the Data Science Specialization!
+
+![](/Users/James/Desktop/Shiny_App/decline.png)
